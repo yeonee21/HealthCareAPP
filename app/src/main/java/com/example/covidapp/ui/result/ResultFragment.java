@@ -23,7 +23,7 @@ public class ResultFragment extends Fragment {
         resultViewModel =
                 new ViewModelProvider(this).get(ResultViewModel.class);
         View root = inflater.inflate(R.layout.fragment_result, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
+        final TextView textView = root.findViewById(R.id.result);
         resultViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

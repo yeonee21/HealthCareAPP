@@ -1,4 +1,4 @@
-package com.example.covidapp.ui.test;
+package com.example.covidapp.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.covidapp.R;
 
-public class TestFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
-    private TestViewModel testViewModel;
+    private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        testViewModel =
-                new ViewModelProvider(this).get(TestViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_test, container, false);
-        final TextView textView = root.findViewById(R.id.test);
-        testViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        homeViewModel =
+                new ViewModelProvider(this).get(HomeViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        final TextView textView = root.findViewById(R.id.home);
+        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
