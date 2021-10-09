@@ -28,6 +28,14 @@
     <string name="title_activity_sign_up">SignUpActivity</string>
 
     <string name="save">저장</string>
+
+    <string-array name="data_version">
+        <style> 대한민국 </style>
+        <style> 미국 </style>
+        <style> 중국 </style>
+        <style> WHO </style>
+    </string-array>
+
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
