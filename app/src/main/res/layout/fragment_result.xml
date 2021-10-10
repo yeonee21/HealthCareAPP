@@ -4,7 +4,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.test.TestFragment">
+    tools:context=".ui.result.ResultFragment">
+
+
+
 
     <TextView
         android:id="@+id/select_data"
@@ -19,4 +22,8 @@
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+
+
+
 </LinearLayout>

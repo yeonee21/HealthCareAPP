@@ -1,14 +1,300 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.test.TestFragment">
+    android:layout_height="match_parent" >
 
-    <ScrollView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="10sp"
+        tools:context=".ui.test.TestFragment"
+        >
 
-    </ScrollView>
-</LinearLayout>
+        <!-- temperature -->
+        <TextView
+            android:id="@+id/select_temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:text="@string/select_temp"
+            android:textSize="20sp"
+            />
+
+        <com.example.covidapp.RadioGridGroup xmlns:grid="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/TempLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            grid:columnCount="2"
+            grid:useDefaultMargins="true">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/TempButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/under36"
+                grid:layout_columnWeight="1" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/TempButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/normal_temp"
+                grid:layout_columnWeight="1" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/TempButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/low_fever"
+                grid:layout_columnWeight="1" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/TempButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/fever"
+                grid:layout_columnWeight="1" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/TempButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/high_fever"
+                grid:layout_columnWeight="1" />
+
+        </com.example.covidapp.RadioGridGroup>
+
+
+        <!-- cough -->
+        <TextView
+            android:id="@+id/select_cough"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:text="@string/select_cough"
+            android:textSize="20sp"
+            />
+
+        <com.example.covidapp.RadioGridGroup xmlns:grid="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/CoughLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            grid:columnCount="2"
+            grid:useDefaultMargins="true">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/CoughButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/cough1"
+                grid:layout_columnWeight="1" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/CoughButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/cough2"
+                grid:layout_columnWeight="1" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/CoughButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/cough3"
+                grid:layout_columnWeight="1" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/CoughButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/cough4"
+                grid:layout_columnWeight="1" />
+
+        </com.example.covidapp.RadioGridGroup>
+
+
+        <!-- Exhaustion -->
+        <TextView
+            android:id="@+id/select_exhaustion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:text="@string/select_exhaustion"
+            android:textSize="20sp"
+            />
+
+        <com.example.covidapp.RadioGridGroup xmlns:grid="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/ExhaustionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            grid:columnCount="2"
+            grid:useDefaultMargins="true">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/ExhaustButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/exhaust1"
+                grid:layout_columnWeight="1" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/ExhaustButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/exhaust2"
+                grid:layout_columnWeight="1" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/ExhaustButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/exhaust3"
+                grid:layout_columnWeight="1" />
+
+        </com.example.covidapp.RadioGridGroup>
+
+
+        <!-- Stuffed Nose -->
+        <TextView
+            android:id="@+id/select_stuffnose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:text="@string/select_nose"
+            android:textSize="20sp"
+            />
+
+        <com.example.covidapp.RadioGridGroup xmlns:grid="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/StuffyNoseLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            grid:columnCount="2"
+            grid:useDefaultMargins="true">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/StuffyNoseButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/nose1"
+                grid:layout_columnWeight="1" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/StuffyNoseButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/nose2"
+                grid:layout_columnWeight="1" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/StuffyNoseButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/nose3"
+                grid:layout_columnWeight="1" />
+
+        </com.example.covidapp.RadioGridGroup>
+
+        <!-- short breath -->
+        <TextView
+            android:id="@+id/select_breath"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:text="@string/select_shortbreath"
+            android:textSize="20sp"
+            />
+
+        <com.example.covidapp.RadioGridGroup xmlns:grid="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/ShortBreathLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            grid:columnCount="2"
+            grid:useDefaultMargins="true">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/ShortBreathButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/shortbreath1"
+                grid:layout_columnWeight="1" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/ShortBreathButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/shortbreath2"
+                grid:layout_columnWeight="1" />
+
+        </com.example.covidapp.RadioGridGroup>
+
+    </LinearLayout>
+</ScrollView>

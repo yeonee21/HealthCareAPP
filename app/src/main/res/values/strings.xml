@@ -29,6 +29,44 @@
 
     <string name="save">저장</string>
 
+
+    <!-- Strings related to temperature -->
+    <string name="select_temp">1. 체온을 선택해주세요.</string>
+    <string name="under36">36도 이하</string>
+    <string name="normal_temp">36~36.9도</string>
+    <string name="low_fever">37~37.4도</string>
+    <string name="fever">37.5~38.4도</string>
+    <string name="high_fever">38.5도 이상</string>
+
+    <!-- Strings related to cough -->
+    <string name="select_cough">2. 기침하는 정도를 선택해주세요.</string>
+    <string name="cough1">없음</string>
+    <string name="cough2">조금</string>
+    <string name="cough3">많이(3주 이내)</string>
+    <string name="cough4">많이(3주 이상)</string>
+
+
+    <!-- Strings related to exhaustion -->
+    <string name="select_exhaustion">3. 피로 정도를 선택해주세요.</string>
+    <string name="exhaust1">없음</string>
+    <string name="exhaust2">조금 피로함</string>
+    <string name="exhaust3">많이 피로함</string>
+
+
+    <!-- Strings related to stuffy nose -->
+    <string name="select_nose">4. 코막힘 및 콧물 정도를 선택해주세요.</string>
+    <string name="nose1">없음</string>
+    <string name="nose2">조금</string>
+    <string name="nose3">많이</string>
+
+    <!-- Strings related to shortness of breath -->
+    <string name="select_shortbreath">5. 호흡곤란을 겪은 적이 있습니까?</string>
+    <string name="shortbreath1">없음</string>
+    <string name="shortbreath2">있음</string>
+
+
+
+
     <string name="select_data">국가 선택</string>
 
     <string name="large_text">
