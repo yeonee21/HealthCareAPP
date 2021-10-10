@@ -1,63 +1,111 @@
 package com.example.covidapp;
 
 import android.os.Bundle;
-import android.view.View;
-import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.covidapp.ui.home.HomeFragment;
+import com.example.covidapp.ui.result.ResultFragment;
+import com.example.covidapp.ui.test.TestFragment;
+import com.example.covidapp.ui.wearable.WearableFragment;
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.view.GravityCompat;
+import androidx.fragment.app.Fragment;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+            implements NavigationView.OnNavigationItemSelectedListener, FragmentCallback {
+    HomeFragment fragment_home;
+    WearableFragment fragment_wearable;
+    TestFragment fragment_test;
+    ResultFragment fragment_result;
 
-    private AppBarConfiguration mAppBarConfiguration;
+    DrawerLayout drawer;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+
+        drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+
         NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_wearable, R.id.nav_test, R.id.nav_result)
-                .setDrawerLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        fragment_home = new HomeFragment();
+        fragment_wearable = new WearableFragment();
+        fragment_test = new TestFragment();
+        fragment_result = new ResultFragment();
+
+        getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_home).commit();
+
+
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.nav_home) {
+            Toast.makeText(this, "코로나19 정보", Toast.LENGTH_LONG).show();
+            onFragmentSelected(0,null);
+        } else if (id == R.id.nav_wearable) {
+            Toast.makeText(this, "웨어러블 데이터 확인", Toast.LENGTH_LONG).show();
+            onFragmentSelected(1, null);
+        } else if (id == R.id.nav_test) {
+            Toast.makeText(this, "건강 및 증상 설문조사", Toast.LENGTH_LONG).show();
+            onFragmentSelected(2, null);
+        } else if (id == R.id.nav_result) {
+            Toast.makeText(this, "자가진단 결과", Toast.LENGTH_LONG).show();
+            onFragmentSelected(3, null);
+        }
+
+        drawer.closeDrawer(GravityCompat.START);
+
         return true;
     }
 
     @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
+    public void onFragmentSelected(int position, Bundle bundle) {
+        Fragment curFragment = null;
+
+        if (position == 0) {
+            curFragment = fragment_home;
+            toolbar.setTitle("COVID19");
+        } else  if (position == 1) {
+            curFragment = fragment_wearable;
+            toolbar.setTitle("웨어러블 데이터");
+        } else  if (position == 2) {
+            curFragment = fragment_test;
+            toolbar.setTitle("건강 및 증상 설문");
+        } else  if (position == 3) {
+            curFragment = fragment_result;
+            toolbar.setTitle("자가진단 결과");
+        }
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
     }
 }
