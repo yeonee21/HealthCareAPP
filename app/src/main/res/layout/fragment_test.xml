@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,8 +18,9 @@
             android:id="@+id/select_temp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10sp"
+            android:paddingLeft="10sp"
             android:text="@string/select_temp"
+            android:textColor="@color/dark_lime"
             android:textSize="20sp"
             />
 
@@ -91,8 +92,9 @@
             android:id="@+id/select_cough"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10sp"
+            android:paddingLeft="10sp"
             android:text="@string/select_cough"
+            android:textColor="@color/dark_lime"
             android:textSize="20sp"
             />
 
@@ -154,8 +156,9 @@
             android:id="@+id/select_exhaustion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10sp"
+            android:paddingLeft="10sp"
             android:text="@string/select_exhaustion"
+            android:textColor="@color/dark_lime"
             android:textSize="20sp"
             />
 
@@ -207,8 +210,9 @@
             android:id="@+id/select_stuffnose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10sp"
+            android:paddingLeft="10sp"
             android:text="@string/select_nose"
+            android:textColor="@color/dark_lime"
             android:textSize="20sp"
             />
 
@@ -259,7 +263,7 @@
             android:id="@+id/select_breath"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10sp"
+            android:paddingLeft="10sp"
             android:text="@string/select_shortbreath"
             android:textSize="20sp"
             />
@@ -295,6 +299,16 @@
                 grid:layout_columnWeight="1" />
 
         </com.example.covidapp.RadioGridGroup>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/save"
+            android:textSize="20dp"/>
+
 
     </LinearLayout>
 </ScrollView>
