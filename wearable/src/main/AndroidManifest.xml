@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.techtown.wearable">
+    package="org.techtown.wearable" >
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.COVIDAPP">
+        android:theme="@style/Theme.COVIDAPP" >
         <uses-library
             android:name="com.google.android.wearable"
             android:required="true" />
@@ -27,7 +27,7 @@
 
         <activity
             android:name=".CollectDataActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
