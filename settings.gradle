@@ -1,2 +1,3 @@
+include ':wearable'
 include ':app'
 rootProject.name = "COVIDAPP"
