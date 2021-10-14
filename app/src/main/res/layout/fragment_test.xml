@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grid="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
@@ -9,7 +10,9 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10sp"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         tools:context=".ui.test.TestFragment"
         >
 
@@ -21,8 +24,7 @@
             android:paddingLeft="10sp"
             android:text="@string/select_temp"
             android:textColor="@color/dark_lime"
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
 
         <com.example.covidapp.RadioGridGroup xmlns:grid="http://schemas.android.com/apk/res-auto"
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -162,9 +164,9 @@
             android:textSize="20sp"
             />
 
-        <com.example.covidapp.RadioGridGroup xmlns:grid="http://schemas.android.com/apk/res-auto"
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+
+        <!-- Stuffed Nose -->
+        <com.example.covidapp.RadioGridGroup
             android:id="@+id/ExhaustionLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -204,8 +206,6 @@
 
         </com.example.covidapp.RadioGridGroup>
 
-
-        <!-- Stuffed Nose -->
         <TextView
             android:id="@+id/select_stuffnose"
             android:layout_width="match_parent"

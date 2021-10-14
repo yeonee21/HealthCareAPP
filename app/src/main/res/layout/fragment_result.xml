@@ -5,52 +5,73 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10sp"
+    android:layout_marginTop="10dp"
     tools:context=".ui.result.ResultFragment">
 
 
     <TextView
         android:id="@+id/WhatIsYourScore"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
         android:textAlignment="center"
         android:gravity="center_horizontal"
         android:text="@string/What_is_your_score"
-        android:textSize="30dp" />
+        android:textSize="25sp" />
 
     <ImageView
         android:id="@+id/mask"
         android:layout_width="match_parent"
-        android:layout_height="270dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="center_horizontal"
         android:src="@drawable/mask" />
 
     <TextView
         android:id="@+id/image_license"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="designed by Freepik"
-        android:textSize="10dp"
-
-    />
+        android:layout_gravity="end"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/designed_by_freepik"
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/select_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="7dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
         android:text="@string/select_data"
         android:textSize="15sp" />
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown" />
 
+    <Button
+        android:id="@+id/my_result"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="center"
+        android:text="@string/my_score"
+        android:textSize="20sp"
+        android:background="@color/dark_lime" />
 
 </LinearLayout>
+

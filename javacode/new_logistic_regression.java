@@ -1,9 +1,5 @@
 package application;
 
-import java.io.*;
-import java.util.*;
-
-
 import weka.classifiers.*;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.classifiers.evaluation.Prediction;
@@ -39,8 +35,8 @@ public class logistic_regression {
 		int numfold = 0;
 		int seed = 1;
 	// 1) data loader 
-			Instances data=new Instances(new BufferedReader(new FileReader("C:\\\\Users\\\\HOME\\\\Desktop\\\\EEI\\\\공개 SW공모전\\"+fileName+".arff")));
-			data.setClassIndex(data.numAttributes()-1); 
+			Instances data=new Instances(new BufferedReader(new FileReader("COVIDAPP/javacode"+fileName+".arff")));
+			data.setClassIndex(data.numAttributes()-1);
 			
 			Instances train = data.trainCV(numfolds, numfold, new Random(seed));
 			Instances test  = data.testCV (numfolds, numfold);
