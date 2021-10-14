@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="92dp"
+                android:text="회원가입"
+                android:textColor="@color/dark_lime"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                />
+
+            <LinearLayout
+                android:layout_width="324dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/idText"
+                    android:layout_width="223dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/edge"
+                    android:drawableStart="@drawable/ic_background_person"
+                    android:drawableLeft="@drawable/ic_background_person"
+                    android:hint="ID"
+                    android:minHeight="48dp"
+                    android:padding="10dp"
+                    android:textColor="@color/dark_lime"
+                    android:textColorHint="@color/dark_lime"
+                    tools:ignore="TextContrastCheck"
+                    android:inputType="textPersonName" />
+
+                <Button
+                    android:id="@+id/validateButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/dark_lime"
+                    android:text="중복 확인"
+                    android:textColor="@color/white"
+                    android:textSize="13dp"
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/passwordText"
+                android:layout_width="324dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/edge"
+                android:drawableStart="@drawable/ic_background_lock"
+                android:drawableLeft="@drawable/ic_background_lock"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:textColor="@color/dark_lime"
+                android:textColorHint="@color/dark_lime"
+                tools:ignore="TextContrastCheck" />
+
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_width="173dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:background="@color/dark_lime"
+                android:text="Sign up"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

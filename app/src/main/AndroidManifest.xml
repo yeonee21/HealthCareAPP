@@ -22,13 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <meta-data
-            android:name="com.google.android.wearable.standalone"
-            android:value="true" />
-
     </application>
-
-    <uses-feature android:name="android.hardware.type.watch" />
 
 </manifest>
