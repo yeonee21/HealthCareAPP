@@ -59,7 +59,9 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown" />
+        android:spinnerMode="dropdown"
+        android:entries="@array/data_versions"
+        android:prompt="@string/select_data"/>
 
     <Button
         android:id="@+id/my_result"

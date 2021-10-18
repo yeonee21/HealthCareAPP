@@ -69,7 +69,7 @@
     <!-- Strings related to Result -->
     <string name="What_is_your_score">나의 코로나19 감염\n위험도 점수는?</string>
     <string name="select_data">국가 데이터 선택</string>
-    <string-array name="data_version">
+    <string-array name="data_versions" translatable="false">
         <item>대한민국</item>
         <item>미국</item>
         <item>중국</item>
