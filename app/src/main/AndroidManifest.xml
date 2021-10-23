@@ -26,7 +26,5 @@
 
     </application>
 
-    <uses-permission android:name="android.permission.BODY_SENSORS"/>
-
 
 </manifest>
