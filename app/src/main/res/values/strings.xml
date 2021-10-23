@@ -27,8 +27,14 @@
     <string name="action_sign_up">회원가입</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
 
-    <string name="save">저장</string>
+    <!-- Strings related to Wearable -->
+    <string name="HeartRate">심박수</string>
+    <string name="SpO2">혈중 산소포화도</string>
+    <string name="condition_normal">정상</string>
+    <string name="condition_caution">주의</string>
+    <string name="condition_danger">위험</string>
 
+    <string name="save">저장</string>
 
     <!-- Strings related to temperature -->
     <string name="select_temp">1. 체온을 선택해주세요.</string>

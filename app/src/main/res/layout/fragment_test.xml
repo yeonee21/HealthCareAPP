@@ -16,6 +16,16 @@
         tools:context=".ui.test.TestFragment"
         >
 
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:id="@+id/test_progress"
+            android:layout_weight="2"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layerType="none" />
+
         <!-- temperature -->
         <TextView
             android:id="@+id/select_temp"
