@@ -36,41 +36,45 @@
 
     <string name="save">저장</string>
 
-    <!-- Strings related to temperature -->
+    <!-- 1. Strings related to temperature -->
     <string name="select_temp">1. 체온을 선택해주세요.</string>
-    <string name="under36">36도 이하</string>
-    <string name="normal_temp">36~36.9도</string>
-    <string name="low_fever">37~37.4도</string>
-    <string name="fever">37.5~38.4도</string>
-    <string name="high_fever">38.5도 이상</string>
-
-    <!-- Strings related to cough -->
-    <string name="select_cough">2. 기침하는 정도를 선택해주세요.</string>
-    <string name="cough1">없음</string>
-    <string name="cough2">조금</string>
-    <string name="cough3">많이(3주 이내)</string>
-    <string name="cough4">많이(3주 이상)</string>
+    <string name="under37">37도 미만</string>
+    <string name="over37">37도 이상</string>
 
 
-    <!-- Strings related to exhaustion -->
-    <string name="select_exhaustion">3. 피로 정도를 선택해주세요.</string>
-    <string name="exhaust1">없음</string>
-    <string name="exhaust2">조금 피로함</string>
-    <string name="exhaust3">많이 피로함</string>
+    <string name="yes">예.</string>
+    <string name="no">아니오.</string>
+
+    <!-- 2. Strings related to illness -->
+    <string name="select_illness">2. 몸이 아픈가요?</string>
 
 
-    <!-- Strings related to stuffy nose -->
-    <string name="select_nose">4. 코막힘 및 콧물 정도를 선택해주세요.</string>
-    <string name="nose1">없음</string>
-    <string name="nose2">조금</string>
-    <string name="nose3">많이</string>
+    <!-- 3. Strings related to runny nose -->
+    <string name="select_runnynose">3. 콧물이 나오나요?</string>
 
-    <!-- Strings related to shortness of breath -->
-    <string name="select_shortbreath">5. 호흡곤란을 겪은 적이 있습니까?</string>
-    <string name="shortbreath1">없음</string>
-    <string name="shortbreath2">있음</string>
+    <!-- 4. Strings related to shortness of breath -->
+    <string name="select_shortbreath">4. 호흡곤란을 겪은 적이 있습니까?</string>
 
+    <!-- 5. Strings related to exhaustion -->
+    <string name="select_exhaustion">5. 피곤한가요?</string>
 
+    <!-- 6. Strings related to cough -->
+    <string name="select_cough">6. 마른 기침이 나오나요?</string>
+
+    <!-- 7. Strings related to throat -->
+    <string name="select_throat">7. 목이 아픈가요?</string>
+
+    <!-- 8. Strings related to covid19 experience -->
+    <string name="select_covidexp">8. Covid-19에 걸렸던적이 있나요?</string>
+
+    <!-- 9. Strings related to stuffy nose -->
+    <string name="select_stuffynose">9. 코가 막혔나요?</string>
+
+    <!-- 10. Strings related to diarrhea -->
+    <string name="select_diarrhea">10. 설사를 했나요?</string>
+
+    <!-- 11. Strings related to contact -->
+    <string name="select_contact">2. 최근(3일 이내) 확진자와 접촉했나요?</string>
 
     <!-- Strings related to Result -->
     <string name="What_is_your_score">나의 코로나19 감염\n위험도 점수는?</string>

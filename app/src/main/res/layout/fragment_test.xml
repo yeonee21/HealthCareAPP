@@ -26,7 +26,8 @@
             android:layout_marginEnd="5dp"
             android:layerType="none" />
 
-        <!-- temperature -->
+
+        <!-- 1. temperature -->
         <TextView
             android:id="@+id/select_temp"
             android:layout_width="match_parent"
@@ -35,135 +36,152 @@
             android:text="@string/select_temp"
             android:textColor="@color/dark_lime"
             android:textSize="20sp" />
-
-        <com.example.covidapp.RadioGridGroup xmlns:grid="http://schemas.android.com/apk/res-auto"
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/TempLayout"
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            grid:columnCount="2"
-            grid:useDefaultMargins="true">
+            android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/TempButton1"
+            <RadioButton
+                android:id="@+id/temp_under37"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/under36"
-                grid:layout_columnWeight="1" />
+                android:text="@string/under37" />
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/TempButton2"
+            <RadioButton
+                android:id="@+id/temp_over37"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/normal_temp"
-                grid:layout_columnWeight="1" />
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="@string/over37" />
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/TempButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/low_fever"
-                grid:layout_columnWeight="1" />
+        </RadioGroup>
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/TempButton4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/fever"
-                grid:layout_columnWeight="1" />
-
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/TempButton5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/high_fever"
-                grid:layout_columnWeight="1" />
-
-        </com.example.covidapp.RadioGridGroup>
-
-
-        <!-- cough -->
+        <!-- 2. Illness -->
         <TextView
-            android:id="@+id/select_cough"
+            android:id="@+id/select_illness"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10sp"
-            android:text="@string/select_cough"
+            android:text="@string/select_illness"
             android:textColor="@color/dark_lime"
             android:textSize="20sp"
             />
-
-        <com.example.covidapp.RadioGridGroup xmlns:grid="http://schemas.android.com/apk/res-auto"
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/CoughLayout"
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            grid:columnCount="2"
-            grid:useDefaultMargins="true">
+            android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/CoughButton1"
+            <RadioButton
+                android:id="@+id/illness_O"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/cough1"
-                grid:layout_columnWeight="1" />
+                android:text="@string/yes" />
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/CoughButton2"
+
+            <RadioButton
+                android:id="@+id/illness_X"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/cough2"
-                grid:layout_columnWeight="1" />
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="@string/no" />
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/CoughButton3"
+        </RadioGroup>
+
+        <!-- 3. Runny Nose -->
+        <TextView
+            android:id="@+id/select_runnynose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10sp"
+            android:text="@string/select_runnynose"
+            android:textColor="@color/dark_lime"
+            android:textSize="20sp"
+            />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/runnynose_O"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/cough3"
-                grid:layout_columnWeight="1" />
+                android:text="@string/yes" />
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/CoughButton4"
+
+            <RadioButton
+                android:id="@+id/runnynose_X"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/cough4"
-                grid:layout_columnWeight="1" />
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="@string/no" />
 
-        </com.example.covidapp.RadioGridGroup>
 
 
-        <!-- Exhaustion -->
+        </RadioGroup>
+
+        <!-- 4. short breath -->
+        <TextView
+            android:id="@+id/select_breath"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10sp"
+            android:text="@string/select_shortbreath"
+            android:textColor="@color/dark_lime"
+            android:textSize="20sp"
+            />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/shortbreath_O"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/yes" />
+
+
+            <RadioButton
+                android:id="@+id/shortbreath_X"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="@string/no" />
+
+
+
+        </RadioGroup>
+
+        <!-- 5. Exhaustion -->
         <TextView
             android:id="@+id/select_exhaustion"
             android:layout_width="match_parent"
@@ -173,142 +191,276 @@
             android:textColor="@color/dark_lime"
             android:textSize="20sp"
             />
-
-
-        <!-- Stuffed Nose -->
-        <com.example.covidapp.RadioGridGroup
-            android:id="@+id/ExhaustionLayout"
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            grid:columnCount="2"
-            grid:useDefaultMargins="true">
+            android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/ExhaustButton1"
+            <RadioButton
+                android:id="@+id/exhaust_O"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/exhaust1"
-                grid:layout_columnWeight="1" />
+                android:text="@string/yes" />
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/ExhaustButton2"
+
+            <RadioButton
+                android:id="@+id/exhaust_X"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/exhaust2"
-                grid:layout_columnWeight="1" />
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="@string/no" />
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/ExhaustButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/exhaust3"
-                grid:layout_columnWeight="1" />
 
-        </com.example.covidapp.RadioGridGroup>
 
+        </RadioGroup>
+
+        <!-- 6. cough -->
         <TextView
-            android:id="@+id/select_stuffnose"
+            android:id="@+id/select_cough"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10sp"
-            android:text="@string/select_nose"
+            android:text="@string/select_cough"
             android:textColor="@color/dark_lime"
             android:textSize="20sp"
             />
-
-        <com.example.covidapp.RadioGridGroup xmlns:grid="http://schemas.android.com/apk/res-auto"
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/StuffyNoseLayout"
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            grid:columnCount="2"
-            grid:useDefaultMargins="true">
+            android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/StuffyNoseButton1"
+            <RadioButton
+                android:id="@+id/cough_O"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/nose1"
-                grid:layout_columnWeight="1" />
+                android:text="@string/yes" />
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/StuffyNoseButton2"
+
+            <RadioButton
+                android:id="@+id/cough_X"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/nose2"
-                grid:layout_columnWeight="1" />
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="@string/no" />
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/StuffyNoseButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/nose3"
-                grid:layout_columnWeight="1" />
 
-        </com.example.covidapp.RadioGridGroup>
 
-        <!-- short breath -->
+        </RadioGroup>
+
+        <!-- 7. Throat -->
         <TextView
-            android:id="@+id/select_breath"
+            android:id="@+id/select_throat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10sp"
-            android:text="@string/select_shortbreath"
+            android:text="@string/select_throat"
+            android:textColor="@color/dark_lime"
             android:textSize="20sp"
             />
-
-        <com.example.covidapp.RadioGridGroup xmlns:grid="http://schemas.android.com/apk/res-auto"
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/ShortBreathLayout"
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            grid:columnCount="2"
-            grid:useDefaultMargins="true">
+            android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/ShortBreathButton1"
+            <RadioButton
+                android:id="@+id/throat_O"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/shortbreath1"
-                grid:layout_columnWeight="1" />
+                android:text="@string/yes" />
 
-            <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/ShortBreathButton2"
+
+            <RadioButton
+                android:id="@+id/throat_X"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/shortbreath2"
-                grid:layout_columnWeight="1" />
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="@string/no" />
 
-        </com.example.covidapp.RadioGridGroup>
+
+
+        </RadioGroup>
+
+        <!-- 8. Covid Experience -->
+        <TextView
+            android:id="@+id/select_covidexp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10sp"
+            android:text="@string/select_covidexp"
+            android:textColor="@color/dark_lime"
+            android:textSize="20sp"
+            />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/covidexp_O"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/yes" />
+
+
+            <RadioButton
+                android:id="@+id/covidexp_X"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="@string/no" />
+
+
+
+        </RadioGroup>
+
+        <!-- 9. Stuffy Nose -->
+        <TextView
+            android:id="@+id/select_stuffynose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10sp"
+            android:text="@string/select_stuffynose"
+            android:textColor="@color/dark_lime"
+            android:textSize="20sp"
+            />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/stuffynose_O"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/yes" />
+
+
+            <RadioButton
+                android:id="@+id/stuffynose_X"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="@string/no" />
+
+
+
+        </RadioGroup>
+
+        <!-- 10. Diarrhea -->
+        <TextView
+            android:id="@+id/select_diarrhea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10sp"
+            android:text="@string/select_diarrhea"
+            android:textColor="@color/dark_lime"
+            android:textSize="20sp"
+            />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/diarrhea_O"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/yes" />
+
+
+            <RadioButton
+                android:id="@+id/diarrhea_X"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="@string/no" />
+
+
+
+        </RadioGroup>
+
+        <!-- 11. Contact -->
+        <TextView
+            android:id="@+id/select_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10sp"
+            android:text="@string/select_contact"
+            android:textColor="@color/dark_lime"
+            android:textSize="20sp"
+            />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/contact_O"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/yes" />
+
+
+            <RadioButton
+                android:id="@+id/contact_X"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="@string/no" />
+
+
+
+        </RadioGroup>
+
 
         <Button
             android:id="@+id/button"
