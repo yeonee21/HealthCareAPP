@@ -25,6 +25,9 @@ import android.widget.Toast;
 
 import com.example.covidapp.MainActivity;
 import com.example.covidapp.R;
+//import com.example.covidapp.RegisterActivity;
+import com.example.covidapp.ui.login.LoginViewModel;
+import com.example.covidapp.ui.login.LoginViewModelFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
