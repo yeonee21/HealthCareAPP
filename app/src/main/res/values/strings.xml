@@ -37,10 +37,8 @@
     <string name="save">저장</string>
 
     <!-- 1. Strings related to temperature -->
-    <string name="select_temp">1. 체온을 선택해주세요.</string>
-    <string name="under37">37도 미만</string>
-    <string name="over37">37도 이상</string>
-
+    <string name="select_temp">1. 체온을 입력해주세요.</string>
+    <string name="user_temp">체온(섭씨 온도)</string>
 
     <string name="yes">예.</string>
     <string name="no">아니오.</string>

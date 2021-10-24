@@ -36,32 +36,17 @@
             android:text="@string/select_temp"
             android:textColor="@color/dark_lime"
             android:textSize="20sp" />
-        <RadioGroup
-            android:layout_width="match_parent"
+
+        <EditText
+            android:id="@+id/user_temp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:hint="@string/user_temp"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:maxLength="2"
+            android:layout_marginBottom="10dp" />
 
-            <RadioButton
-                android:id="@+id/temp_under37"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/under37" />
-
-            <RadioButton
-                android:id="@+id/temp_over37"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                android:text="@string/over37" />
-
-        </RadioGroup>
 
         <!-- 2. Illness -->
         <TextView
@@ -74,6 +59,7 @@
             android:textSize="20sp"
             />
         <RadioGroup
+            android:id="@+id/rg_Illness"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -112,6 +98,7 @@
             android:textSize="20sp"
             />
         <RadioGroup
+            android:id="@+id/rg_RunnyNose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -152,6 +139,7 @@
             android:textSize="20sp"
             />
         <RadioGroup
+            android:id="@+id/rg_ShortBreath"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -192,6 +180,7 @@
             android:textSize="20sp"
             />
         <RadioGroup
+            android:id="@+id/rg_Exhaust"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -232,6 +221,7 @@
             android:textSize="20sp"
             />
         <RadioGroup
+            android:id="@+id/rg_Cough"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -272,6 +262,7 @@
             android:textSize="20sp"
             />
         <RadioGroup
+            android:id="@+id/rg_Throat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -312,6 +303,7 @@
             android:textSize="20sp"
             />
         <RadioGroup
+            android:id="@+id/rg_CovidExp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -352,6 +344,7 @@
             android:textSize="20sp"
             />
         <RadioGroup
+            android:id="@+id/rg_StuffyNose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -392,6 +385,7 @@
             android:textSize="20sp"
             />
         <RadioGroup
+            android:id="@+id/rg_Diarrhea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -432,6 +426,7 @@
             android:textSize="20sp"
             />
         <RadioGroup
+            android:id="@+id/rg_Contact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -463,7 +458,7 @@
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/test_button"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="10dp"

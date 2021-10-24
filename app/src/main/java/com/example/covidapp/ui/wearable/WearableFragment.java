@@ -4,8 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.SeekBar;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -18,8 +17,8 @@ public class WearableFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_wearable, container, false);
 
-        SeekBar HeartRateBar = (SeekBar) rootView.findViewById(R.id.HR_bar);
-        EditText hr_condition = (EditText) rootView.findViewById(R.id.HR_condition);
+        TextView hr_condition = (TextView) rootView.findViewById(R.id.HR_condition);
+        TextView spo2_condition = (TextView) rootView.findViewById(R.id.SpO2_condition);
 
         return inflater.inflate(R.layout.fragment_wearable, container, false);
     }
