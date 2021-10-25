@@ -14,16 +14,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:textAlignment="center"
         android:gravity="center_horizontal"
         android:text="@string/What_is_your_score"
-        android:textSize="25sp" />
+        android:textSize="30sp" />
 
     <ImageView
         android:id="@+id/mask"
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_gravity="center_horizontal"
@@ -46,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:text="@string/select_data"
         android:textSize="15sp" />
 
@@ -67,7 +68,7 @@
         android:id="@+id/my_result"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_gravity="center"
