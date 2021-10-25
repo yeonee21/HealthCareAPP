@@ -7,7 +7,7 @@ https://github.com/yeonee21/WearableHealthCare.git
 ## Test 환경
 -	Android Studio Arctic Fox 
 - Android Virtual Device: 
-    - Resolution| (Pixel 4) 5.7 1080x2280: xxhdpi
+    - Resolution | (Pixel 4) 5.7 1080x2280: xxhdpi
     - R | API Level 30, Android 11.0 x86(Google APIs)
 
 
