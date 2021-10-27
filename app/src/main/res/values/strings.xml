@@ -72,19 +72,13 @@
     <string name="select_diarrhea">10. 설사를 했나요?</string>
 
     <!-- 11. Strings related to contact -->
-    <string name="select_contact">2. 최근(3일 이내) 확진자와 접촉했나요?</string>
+    <string name="select_contact">11. 최근(3일 이내) 확진자와 접촉했나요?</string>
 
     <!-- Strings related to Result -->
     <string name="What_is_your_score">나의 코로나19 감염\n위험도 점수는?</string>
-    <string name="select_data">국가 데이터 선택</string>
-    <string-array name="data_versions" translatable="false">
-        <item>대한민국</item>
-        <item>미국</item>
-        <item>중국</item>
-        <item>WHO</item>
-    </string-array>
 
-    <string name="my_score" >결과 보기</string>
+    <string name="my_score">결과 보기</string>
 
     <string name="designed_by_freepik">designed by Freepik</string>
+
 </resources>

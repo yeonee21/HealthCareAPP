@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 
-public class SharedViewModel extends ViewModel {
+public class TestViewModel extends ViewModel {
     private final MutableLiveData<Item> selected = new MutableLiveData<Item>();
 
     public void select(Item item) {

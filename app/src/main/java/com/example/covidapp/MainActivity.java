@@ -4,18 +4,18 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.example.covidapp.ui.home.HomeFragment;
 import com.example.covidapp.ui.result.ResultFragment;
 import com.example.covidapp.ui.test.TestFragment;
 import com.example.covidapp.ui.wearable.WearableFragment;
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.core.view.GravityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity
             implements NavigationView.OnNavigationItemSelectedListener, FragmentCallback {
@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -49,8 +48,10 @@ public class MainActivity extends AppCompatActivity
         fragment_wearable = new WearableFragment();
         fragment_test = new TestFragment();
         fragment_result = new ResultFragment();
-
+        
         getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_home).commit();
+
+
 
 
     }
@@ -90,22 +91,23 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onFragmentSelected(int position, Bundle bundle) {
-        Fragment curFragment = null;
 
         if (position == 0) {
-            curFragment = fragment_home;
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment_home).commit();
             toolbar.setTitle("COVID19");
         } else  if (position == 1) {
-            curFragment = fragment_wearable;
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment_wearable).commit();
             toolbar.setTitle("웨어러블 데이터");
         } else  if (position == 2) {
-            curFragment = fragment_test;
             toolbar.setTitle("건강 및 증상 설문");
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment_test).commit();
         } else  if (position == 3) {
-            curFragment = fragment_result;
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment_result).commit();
             toolbar.setTitle("자가진단 결과");
         }
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
     }
+
+
 }
+
+

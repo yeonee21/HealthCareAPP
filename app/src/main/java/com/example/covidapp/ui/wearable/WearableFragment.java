@@ -15,12 +15,12 @@ public class WearableFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_wearable, container, false);
+        View rootView = inflater.inflate(R.layout.activity_wearable, container, false);
 
         TextView hr_condition = (TextView) rootView.findViewById(R.id.HR_condition);
         TextView spo2_condition = (TextView) rootView.findViewById(R.id.SpO2_condition);
 
-        return inflater.inflate(R.layout.fragment_wearable, container, false);
+        return inflater.inflate(R.layout.activity_wearable, container, false);
     }
 
 }

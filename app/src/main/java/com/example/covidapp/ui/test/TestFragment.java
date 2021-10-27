@@ -15,7 +15,7 @@ import com.example.covidapp.R;
 
 
 public class TestFragment extends Fragment {
-    private SharedViewModel model;
+    private TestViewModel model;
     private EditText edit_temp;
     private RadioGroup rgIllness, rgRunNose, rgBreath, rgExhaust, rgCough,
             rgThroat, rgCovidexp, rgStuffNose, rgDiarrhea, rgContact;
@@ -180,7 +180,7 @@ public class TestFragment extends Fragment {
 
     public void onViewCreated(ViewGroup rootView, Bundle savedInstanceState){
         super.onViewCreated(rootView, savedInstanceState);
-        model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+        model = new ViewModelProvider(requireActivity()).get(TestViewModel.class);
         save_test.setOnClickListener(item ->{
             Item illnessItem = new Item();
             model.select(illnessItem);

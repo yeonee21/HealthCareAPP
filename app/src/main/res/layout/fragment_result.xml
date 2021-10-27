@@ -1,80 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:id="@+id/checkResult"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="10dp"
-    tools:context=".ui.result.ResultFragment">
+    android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/WhatIsYourScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:textAlignment="center"
-        android:gravity="center_horizontal"
-        android:text="@string/What_is_your_score"
-        android:textSize="30sp" />
-
-    <ImageView
-        android:id="@+id/mask"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/mask" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/image_license"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:text="@string/designed_by_freepik"
-        android:textSize="10sp"
-        tools:ignore="SmallSp" />
+        <LinearLayout
+            android:id="@+id/resultlayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/select_data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/select_data"
-        android:textSize="15sp" />
+            <TextView
+                android:id="@+id/WhatIsYourScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:gravity="center_horizontal"
+                android:text="@string/What_is_your_score"
+                android:textAlignment="center"
+                android:textSize="30sp" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
-        android:entries="@array/data_versions"
-        android:prompt="@string/select_data"/>
+            <ImageView
+                android:id="@+id/mask"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/designed_by_freepik"
+                android:src="@drawable/mask" />
 
-    <Button
-        android:id="@+id/my_result"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_gravity="center"
-        android:text="@string/my_score"
-        android:textSize="20sp"
-        android:background="@color/dark_lime" />
+            <TextView
+                android:id="@+id/image_license"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:text="@string/designed_by_freepik"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
 
+            <Button
+                android:id="@+id/my_result"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/dark_lime"
+                android:text="@string/my_score"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/resultlayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/YourScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="100dp"
+                android:text="99"
+                android:textSize="180sp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/YourScore"
+                app:layout_constraintBottom_toBottomOf="@id/YourScore"
+                android:text="점"
+                android:textSize="40sp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/YourScore"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="50sp"
+                android:textColor="@color/dark_lime"
+                android:text="@string/condition_normal">
+
+            </TextView>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
 </LinearLayout>
+
+
 
