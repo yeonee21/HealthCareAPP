@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.covidapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.COVIDAPP"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.test.TestActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.result.ResultActivity"
             android:exported="false" />
@@ -25,35 +30,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ui.login.LoginActivity" />
-
-        <!-- <activity -->
+        <activity android:name=".ui.login.LoginActivity" /> <!-- <activity -->
         <!-- android:name=".RegisterActivity" -->
         <!-- android:label="회원가입"> -->
         <!-- </activity> -->
-
         <activity
             android:name=".MainActivity"
-            android:label="COVID 19"
-            android:theme="@style/Theme.COVIDAPP.NoActionBar" />
-
-        <activity
-            android:name=".ResultActivity"
-            android:label="Test Result"
-            android:theme="@style/Theme.COVIDAPP.NoActionBar" />
-
-        <activity
-            android:name=".TestActivity"
-            android:label="Covid Symptom test"
-            android:theme="@style/Theme.COVIDAPP.NoActionBar" />
-
-        <activity
-            android:name=".WearableActivity"
-            android:label="Wearable data"
+            android:label="@string/app_name"
             android:theme="@style/Theme.COVIDAPP.NoActionBar" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

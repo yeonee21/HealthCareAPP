@@ -18,6 +18,7 @@ public class WearableActivity extends AppCompatActivity {
     int spo2_value;
     int hr_score;
     int spo2_score;
+    int wearableScore;
 
     EditText hr_edit;
     EditText spo2_edit;
@@ -26,6 +27,7 @@ public class WearableActivity extends AppCompatActivity {
     TextView spo2_condition;
 
     Button wearable_btn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,22 +44,18 @@ public class WearableActivity extends AppCompatActivity {
         wearable_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentW = new Intent(WearableActivity.this, ResultActivity.class);
+                Intent intent3 = new Intent(WearableActivity.this, ResultActivity.class);
                 hr_value = Integer.parseInt(hr_edit.getText().toString().trim());
                 spo2_value = Integer.parseInt(spo2_edit.getText().toString().trim());
                 setCondition();
                 wearableScore();
-
-                int wearableScore = hr_score+spo2_score;
-
-                intentW.putExtra("Wearable", wearableScore);
-
-                startActivity(intentW);
+                wearableScore = hr_score+spo2_score;
+                intent3.putExtra("Wearable", wearableScore);
+                startActivity(intent3);
 
             }
 
         });
-
 
     }
 
@@ -109,6 +107,8 @@ public class WearableActivity extends AppCompatActivity {
         }
 
     }
+
+
 
 
 }

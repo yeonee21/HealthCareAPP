@@ -11,10 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.example.covidapp.MainActivity;
 import com.example.covidapp.R;
-import com.example.covidapp.TestActivity;
-import com.example.covidapp.WearableActivity;
 
 public class ResultActivity extends AppCompatActivity {
     LinearLayout result1;
@@ -45,7 +42,7 @@ public class ResultActivity extends AppCompatActivity {
 
         tv_finalScore = findViewById(R.id.finalScore);
         tv_finalCondition = findViewById(R.id.finalCondition);
-
+        
         tv_finalScore.setText(String.valueOf(finalScore));
         setFinalCondition();
 
@@ -74,21 +71,5 @@ public class ResultActivity extends AppCompatActivity {
             tv_finalCondition.setText("매우 위험");
             tv_finalCondition.setTextColor(Color.parseColor("#FF1206"));
         }
-    }
-
-    public void btn_timeline(View view){
-        startActivity(new Intent(this, MainActivity.class));
-    }
-
-    public void btn_wearable(View view){
-        startActivity(new Intent(this, WearableActivity.class));
-    }
-
-    public void btn_test(View view){
-        startActivity(new Intent(this, TestActivity.class));
-    }
-
-    public void btn_result(View view)
-    {
     }
 }

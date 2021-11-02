@@ -3,25 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/drawable/ic_background_lock.xml" value="0.26979166666666665" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26979166666666665" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/drawable/ic_menu_result.xml" value="0.26979166666666665" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/drawable/ic_menu_survey.xml" value="0.26979166666666665" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/drawable/ic_menu_timeline.xml" value="0.26979166666666665" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/drawable/ic_menu_wearble.xml" value="0.26979166666666665" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/layout/activity_main.xml" value="0.152" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/layout/activity_register.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/layout/activity_result.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/layout/activity_signup.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/layout/activity_test.xml" value="0.2" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/layout/activity_wearable.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/layout/app_main.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/layout/fragment_home.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/layout/fragment_result.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/layout/fragment_test.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/layout/nav_header_main.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/user/StudioProjects/HealthCareAPP/app/src/main/res/menu/activity_main_drawer.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/yujin/Documents/HealthCareAPP/app/src/main/res/drawable/edge.xml" value="0.1" />
         <entry key="..\:/Users/yujin/Documents/HealthCareAPP/app/src/main/res/drawable/ic_background_lock.xml" value="0.1" />
         <entry key="..\:/Users/yujin/Documents/HealthCareAPP/app/src/main/res/drawable/ic_background_person.xml" value="0.1" />
@@ -46,7 +27,8 @@
         <entry key="app/src/main/res/layout/activity_result.xml" value="0.11927083333333334" />
         <entry key="app/src/main/res/layout/activity_resultsub.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_wearable.xml" value="0.3157894736842105" />
+        <entry key="app/src/main/res/layout/activity_test.xml" value="0.1234375" />
+        <entry key="app/src/main/res/layout/activity_wearable.xml" value="0.125" />
         <entry key="app/src/main/res/layout/app_main.xml" value="0.17864583333333334" />
         <entry key="app/src/main/res/layout/fragment_final_result.xml" value="0.1046875" />
         <entry key="app/src/main/res/layout/fragment_finalresult.xml" value="0.165" />
@@ -63,7 +45,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="14" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

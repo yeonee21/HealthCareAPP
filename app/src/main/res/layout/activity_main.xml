@@ -1,71 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menulayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
+    <FrameLayout
+        android:id="@+id/framelayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.example.covidapp.ui.home.HomeFragment">
+        android:layout_height="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/navigationView" >
 
-        <WebView
-            android:id="@+id/webview"
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="16dp" />
+            android:layout_height="match_parent">
 
-    </androidx.core.widget.NestedScrollView>
+            <WebView
+                android:id="@+id/webview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                />
+        </androidx.core.widget.NestedScrollView>
 
-    <LinearLayout
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/lime"
-        app:layout_constraintBottom_toBottomOf="@+id/nestedScrollView">
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_menu_timeline"
-            android:onClick="btn_timeline"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="27dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_menu_wearble"
-            android:onClick="btn_wearable"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="24dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_menu_survey"
-            android:onClick="btn_test"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_menu_result"
-            android:onClick="btn_result"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:id="@+id/navigationView"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/main_bottomnavigation"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

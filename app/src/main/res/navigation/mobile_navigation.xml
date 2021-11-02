@@ -14,19 +14,19 @@
 
     <fragment
         android:id="@+id/nav_wearable"
-        android:name="com.example.covidapp.WearableActivity"
+        android:name="com.example.covidapp.ui.wearable.WearableFragment"
         android:label="@string/menu_wearable"
         tools:layout="@layout/activity_wearable" />
 
     <fragment
         android:id="@+id/nav_test"
-        android:name="com.example.covidapp.TestActivity"
+        android:name="com.example.covidapp.ui.test.TestFragment"
         android:label="@string/menu_test"
         tools:layout="@layout/fragment_test" />
 
     <fragment
         android:id="@+id/nav_result"
-        android:name="com.example.covidapp.ResultActivity"
+        android:name="com.example.covidapp.ui.result.ResultFragment"
         android:label="@string/menu_result"
         tools:layout="@layout/activity_result" />
 </navigation>
