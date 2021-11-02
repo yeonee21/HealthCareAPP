@@ -1,5 +1,6 @@
-package com.example.covidapp.ui.test;
+package com.example.covidapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,13 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.covidapp.R;
+import com.example.covidapp.ui.test.Item;
+import com.example.covidapp.ui.test.TestViewModel;
 
 
-public class TestFragment extends Fragment {
+public class TestActivity extends AppCompatActivity {
     private TestViewModel model;
     private EditText edit_temp;
     private RadioGroup rgIllness, rgRunNose, rgBreath, rgExhaust, rgCough,
@@ -25,13 +29,16 @@ public class TestFragment extends Fragment {
 
     private Button save_test;
 
-    public TestFragment() { }
+    public TestActivity() { }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup rootView =(ViewGroup) inflater.inflate(R.layout.fragment_test, container, false);
-        edit_temp = rootView.findViewById(R.id.user_temp);
-        rgIllness = rootView.findViewById(R.id.rg_Illness);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_test);
+
+        edit_temp = findViewById(R.id.user_temp);
+        rgIllness = findViewById(R.id.rg_Illness);
+
         rgIllness.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -45,7 +52,7 @@ public class TestFragment extends Fragment {
             }
         });
 
-        rgRunNose = rootView.findViewById(R.id.rg_RunnyNose);
+        rgRunNose = findViewById(R.id.rg_RunnyNose);
         rgRunNose.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -59,7 +66,7 @@ public class TestFragment extends Fragment {
             }
         });
 
-        rgBreath = rootView.findViewById(R.id.rg_ShortBreath);
+        rgBreath = findViewById(R.id.rg_ShortBreath);
         rgBreath.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -73,7 +80,7 @@ public class TestFragment extends Fragment {
             }
         });
 
-        rgExhaust = rootView.findViewById(R.id.rg_Exhaust);
+        rgExhaust = findViewById(R.id.rg_Exhaust);
         rgExhaust.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -87,7 +94,7 @@ public class TestFragment extends Fragment {
             }
         });
 
-        rgCough = rootView.findViewById(R.id.rg_Cough);
+        rgCough = findViewById(R.id.rg_Cough);
         rgCough.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -101,7 +108,7 @@ public class TestFragment extends Fragment {
             }
         });
 
-        rgThroat = rootView.findViewById(R.id.rg_Throat);
+        rgThroat = findViewById(R.id.rg_Throat);
         rgThroat.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -115,7 +122,7 @@ public class TestFragment extends Fragment {
             }
         });
 
-        rgCovidexp = rootView.findViewById(R.id.rg_CovidExp);
+        rgCovidexp = findViewById(R.id.rg_CovidExp);
         rgCovidexp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -129,7 +136,7 @@ public class TestFragment extends Fragment {
             }
         });
 
-        rgStuffNose = rootView.findViewById(R.id.rg_StuffyNose);
+        rgStuffNose = findViewById(R.id.rg_StuffyNose);
         rgStuffNose.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -143,7 +150,7 @@ public class TestFragment extends Fragment {
             }
         });
 
-        rgDiarrhea = rootView.findViewById(R.id.rg_Diarrhea);
+        rgDiarrhea = findViewById(R.id.rg_Diarrhea);
         rgDiarrhea.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -157,7 +164,7 @@ public class TestFragment extends Fragment {
             }
         });
 
-        rgContact = rootView.findViewById(R.id.rg_Contact);
+        rgContact = findViewById(R.id.rg_Contact);
         rgContact.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -166,29 +173,29 @@ public class TestFragment extends Fragment {
                 } else if (checkedId == R.id.contact_X) {
                     StateContact = 0;
                 } else {
-                    StateContact= 100;
+                    StateContact = 100;
                 }
             }
         });
 
-        save_test = rootView.findViewById(R.id.test_button);
-
-
-        return rootView;
+        save_test = findViewById(R.id.test_button);
 
     }
 
-    public void onViewCreated(ViewGroup rootView, Bundle savedInstanceState){
-        super.onViewCreated(rootView, savedInstanceState);
-        model = new ViewModelProvider(requireActivity()).get(TestViewModel.class);
-        save_test.setOnClickListener(item ->{
-            Item illnessItem = new Item();
-            model.select(illnessItem);
-        });
+    public void btn_timeline(View view){
+        startActivity(new Intent(this, MainActivity.class));
+    }
 
-        model.getSelected().observe(getViewLifecycleOwner(), item -> {
-            edit_temp.setText(item.getTemp());
+    public void btn_wearable(View view){
+        startActivity(new Intent(this, WearableActivity.class));
+    }
 
-        });
-    };
+    public void btn_test(View view){
+        ;
+    }
+
+    public void btn_result(View view)
+    {
+        startActivity(new Intent(this, ResultActivity.class));
+    }
 }
