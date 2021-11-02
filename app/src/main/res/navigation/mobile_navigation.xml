@@ -28,5 +28,5 @@
         android:id="@+id/nav_result"
         android:name="com.example.covidapp.ResultActivity"
         android:label="@string/menu_result"
-        tools:layout="@layout/fragment_result" />
+        tools:layout="@layout/activity_result" />
 </navigation>

@@ -52,68 +52,64 @@
                 tools:ignore="SmallSp" />
 
             <Button
-                android:id="@+id/my_result"
+                android:id="@+id/result_btn"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="10dp"
                 android:background="@color/dark_lime"
                 android:text="@string/my_score"
                 android:textSize="20sp" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/resultlayout2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/YourScore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="100dp"
-                    android:text="99"
-                    android:textSize="180sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="점"
-                    android:textSize="40sp"
-                    app:layout_constraintBottom_toBottomOf="@id/YourScore"
-                    app:layout_constraintLeft_toRightOf="@id/YourScore">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/condition_normal"
-                    android:textColor="@color/dark_lime"
-                    android:textSize="50sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/YourScore">
-
-                </TextView>
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/resultlayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/finalScore"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:textSize="140sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textAlignment="center">
+
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="점"
+                android:textSize="40sp"
+                app:layout_constraintBottom_toBottomOf="@id/finalScore"
+                app:layout_constraintLeft_toRightOf="@id/finalScore">
+            </TextView>
+
+            <TextView
+                android:id="@+id/finalCondition"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textSize="50sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/finalScore">
+            </TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/result_menu"
         android:layout_width="match_parent"
         android:layout_height="42dp"
         android:layout_alignParentBottom="true"

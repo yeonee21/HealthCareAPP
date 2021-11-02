@@ -11,6 +11,12 @@
         android:theme="@style/Theme.COVIDAPP"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.result.ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.wearable.WearableActivity"
+            android:exported="false" />
+        <activity
             android:name=".startApp"
             android:exported="true">
             <intent-filter>

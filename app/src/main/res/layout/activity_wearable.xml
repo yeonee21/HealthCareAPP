@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WearableActivity">
+    tools:context=".ui.wearable.WearableActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,24 +37,24 @@
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/HR_value"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/heartrate"
                     android:layout_marginStart="100dp"
                     android:layout_marginLeft="100dp"
                     android:layout_marginBottom="10dp"
-                    android:text="65"
                     android:textColor="@color/black"
-                    android:textSize="40sp"
-                    android:textStyle="bold" />
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:inputType="number"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@id/HR_value"
-                    android:layout_alignLeft="@id/HR_value"
                     android:layout_alignBottom="@id/HR_value"
                     android:layout_marginStart="56dp"
                     android:layout_marginLeft="10dp"
@@ -64,7 +64,8 @@
                     android:layout_marginBottom="10dp"
                     android:text="bpm"
                     android:textColor="@color/black"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:layout_alignLeft="@id/HR_value" />
 
                  <ImageView
                         android:layout_width="60dp"
@@ -81,7 +82,7 @@
 
         <TextView
             android:id="@+id/HR_condition"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginStart="50dp"
@@ -115,18 +116,18 @@
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/spo2_value"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:text="95"
                     android:layout_below="@+id/spo2"
                     android:layout_marginLeft="100dp"
                     android:layout_marginStart="100dp"
                     android:layout_marginBottom="10dp"
-                    android:textSize="40sp"
+                    android:textSize="30sp"
                     android:textColor="@color/black"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:inputType="number"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -159,61 +160,26 @@
 
         <TextView
             android:id="@+id/SpO2_condition"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
-            android:textSize="30sp"
-            android:textColor="@color/black"/>
-    </LinearLayout>
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
 
+        <Button
+            android:id="@+id/wearable_save"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@color/light_lime"
+            android:text="@string/save"
+            android:textSize="20sp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/lime"
-        app:layout_constraintBottom_toBottomOf="parent">
+        </Button>
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_menu_timeline"
-            android:onClick="btn_timeline"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="27dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_menu_wearble"
-            android:onClick="btn_wearable"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="24dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_menu_survey"
-            android:onClick="btn_test"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_menu_result"
-            android:onClick="btn_result"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </LinearLayout>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
