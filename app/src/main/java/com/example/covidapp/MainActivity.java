@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, WearableActivity.class));
                     break;
                 case R.id.nav_test:
-                    Toast.makeText(MainActivity.this, "설문조", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "설문조사", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(MainActivity.this, TestActivity.class));
                     break;
                 case R.id.nav_result:
@@ -59,10 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
             return false;
         });
-
-
-
     }
+
 
 }
 

@@ -22,7 +22,7 @@
         android:id="@+id/nav_test"
         android:name="com.example.covidapp.ui.test.TestFragment"
         android:label="@string/menu_test"
-        tools:layout="@layout/fragment_test" />
+        tools:layout="@layout/activity_test" />
 
     <fragment
         android:id="@+id/nav_result"

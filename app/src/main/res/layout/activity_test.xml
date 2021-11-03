@@ -479,49 +479,14 @@
     </ScrollView>
 
 
-    <LinearLayout
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/lime"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_height="wrap_content"
+        android:id="@+id/navigationView"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/main_bottomnavigation"/>
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_menu_timeline"
-            android:onClick="btn_timeline"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="27dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_menu_wearble"
-            android:onClick="btn_wearable"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="24dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_menu_survey"
-            android:onClick="btn_test"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_menu_result"
-            android:onClick="btn_result"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

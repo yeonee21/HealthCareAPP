@@ -1,17 +1,26 @@
 package com.example.covidapp.ui.wearable;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.covidapp.MainActivity;
 import com.example.covidapp.R;
 import com.example.covidapp.ui.result.ResultActivity;
+import com.example.covidapp.ui.test.TestActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class WearableActivity extends AppCompatActivity {
     int hr_value;
@@ -27,6 +36,8 @@ public class WearableActivity extends AppCompatActivity {
     TextView spo2_condition;
 
     Button wearable_btn;
+
+    SharedPreferences pref;
 
 
     @Override
@@ -44,17 +55,46 @@ public class WearableActivity extends AppCompatActivity {
         wearable_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent3 = new Intent(WearableActivity.this, ResultActivity.class);
                 hr_value = Integer.parseInt(hr_edit.getText().toString().trim());
                 spo2_value = Integer.parseInt(spo2_edit.getText().toString().trim());
                 setCondition();
                 wearableScore();
                 wearableScore = hr_score+spo2_score;
-                intent3.putExtra("Wearable", wearableScore);
-                startActivity(intent3);
+                saveState();
+
+                println("HeartRate: ", String.valueOf(hr_value));
+                println("SpO2: ", String.valueOf(spo2_value));
+                println("Wearable Score: ", String.valueOf(wearableScore));
 
             }
 
+        });
+
+        BottomNavigationView navigationView = findViewById(R.id.navigationView);
+        Menu menu = navigationView.getMenu();
+        MenuItem menuItem = menu.getItem(1);
+        menuItem.setChecked(true);
+
+        navigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.nav_home:
+                    Toast.makeText(WearableActivity.this, "코로나19 정보", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(WearableActivity.this, MainActivity.class));
+                    return true;
+                case R.id.nav_wearable:
+                    Toast.makeText(WearableActivity.this, "웨어러블 데이터 확인", Toast.LENGTH_LONG).show();
+                    return true;
+                case R.id.nav_test:
+                    Toast.makeText(WearableActivity.this, "설문조사", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(WearableActivity.this, TestActivity.class));
+                    return true;
+                case R.id.nav_result:
+                    Toast.makeText(WearableActivity.this, "자가진단 결과", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(WearableActivity.this, ResultActivity.class));
+                    return true;
+            }
+
+            return false;
         });
 
     }
@@ -106,6 +146,31 @@ public class WearableActivity extends AppCompatActivity {
             spo2_condition.setTextColor(Color.parseColor("#FF1206"));
         }
 
+    }
+
+
+
+    public void println(String key,String value) {
+        Log.d(key,value);
+    }
+
+    protected void restoreState() {
+        pref = getSharedPreferences("Data", Activity.MODE_PRIVATE);
+        if ((pref != null) && (pref.contains("HeartRate") && (pref.contains("SpO2")))) {
+            String heartrate = String.valueOf(pref.getInt("HeartRate", 0));
+            String spo2 = String.valueOf(pref.getInt("SpO2",0));
+            hr_edit.setText(heartrate);
+            spo2_edit.setText(spo2);
+        }
+    }
+
+    protected void saveState() {
+        pref = getSharedPreferences("Data", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putInt("HeartRate", hr_value);
+        editor.putInt("SpO2", spo2_value);
+        editor.putInt("Wearable", wearableScore);
+        editor.apply();
     }
 
 

@@ -79,6 +79,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginTop="120dp"
+                android:textAlignment="center"
                 android:textSize="140sp">
 
             </TextView>
@@ -107,6 +108,16 @@
 
             </TextView>
 
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/navigationView"
+                android:background="?android:attr/windowBackground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:menu="@menu/main_bottomnavigation"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
