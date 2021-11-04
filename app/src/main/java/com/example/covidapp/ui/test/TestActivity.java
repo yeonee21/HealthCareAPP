@@ -200,7 +200,7 @@ public class TestActivity extends AppCompatActivity {
 ////     extract from python
 
                     Illness_score = StateIllness * 10;
-                    Temp_score = (float) (StateTemp_value * 0.004716);
+//                    Temp_score = (float) (StateTemp_value * 0.004716);
                     RunNose_score = (float) (StateRunNose * 0.098425);
                     Breath_score = (float) (StateBreath * 0.071799);
                     Exhaust_score = (float) (StateExhaust * 0.054597);
@@ -216,7 +216,7 @@ public class TestActivity extends AppCompatActivity {
 
                     saveState();
 
-                    println("StateTemp: ", String.valueOf(StateTemp_value));
+//                    println("StateTemp: ", String.valueOf(StateTemp_value));
                     println("StateIllness: ", String.valueOf(StateIllness));
                     println("StateRunNose: ", String.valueOf(StateRunNose));
                     println("StateBreath: ", String.valueOf(StateBreath));
