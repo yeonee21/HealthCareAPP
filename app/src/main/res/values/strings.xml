@@ -74,6 +74,9 @@
     <!-- 11. Strings related to contact -->
     <string name="select_contact">11. 최근(3일 이내) 확진자와 접촉했나요?</string>
 
+    <!--12. Strings related to Underlying Disease -->
+    <string name="select_underlyingD">12. 기저질환이 있나요?\n(암, 만성신장 질환, 만성 간질환,만성 폐질환, 신경질환, 당뇨 1형 또는 2형, 다운증후군,\n심장병, HIV 감염, 임신 등등)?</string>
+
     <!-- Strings related to Result -->
     <string name="What_is_your_score">나의 코로나19 감염\n위험도 점수는?</string>
 

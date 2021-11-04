@@ -455,7 +455,45 @@
                     android:layout_marginLeft="30dp"
                     android:text="@string/no" />
 
+            </RadioGroup>
 
+
+            <!-- 12. Underlying Disease -->
+            <TextView
+                android:id="@+id/select_underlyingD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10sp"
+                android:text="@string/select_underlyingD"
+                android:textColor="@color/dark_lime"
+                android:textSize="20sp"
+                />
+            <RadioGroup
+                android:id="@+id/rg_underlyingD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/underlyingD_O"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/yes" />
+
+
+                <RadioButton
+                    android:id="@+id/underlyingD_X"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="@string/no" />
 
             </RadioGroup>
 

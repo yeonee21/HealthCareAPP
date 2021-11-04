@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -86,7 +85,7 @@ public class ResultActivity extends AppCompatActivity {
                     return true;
                 case R.id.nav_wearable:
                     startActivity(new Intent(ResultActivity.this, WearableActivity.class));
-                    return true;
+                   return true;
                 case R.id.nav_test:
                     startActivity(new Intent(ResultActivity.this, TestActivity.class));
                     return true;
