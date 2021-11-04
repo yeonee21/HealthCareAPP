@@ -82,19 +82,15 @@ public class ResultActivity extends AppCompatActivity {
         navigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.nav_home:
-                    Toast.makeText(ResultActivity.this, "코로나19 정보", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(ResultActivity.this, MainActivity.class));
                     return true;
                 case R.id.nav_wearable:
-                    Toast.makeText(ResultActivity.this, "웨어러블 데이터 확인", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(ResultActivity.this, WearableActivity.class));
                     return true;
                 case R.id.nav_test:
-                    Toast.makeText(ResultActivity.this, "설문조사", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(ResultActivity.this, TestActivity.class));
                     return true;
                 case R.id.nav_result:
-                    Toast.makeText(ResultActivity.this, "자가진단 결과", Toast.LENGTH_LONG).show();
                     return true;
             }
             return false;

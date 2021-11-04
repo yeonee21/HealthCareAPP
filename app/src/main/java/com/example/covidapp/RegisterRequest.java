@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RegisterRequest extends StringRequest {
-    final static private String URL = "";
+    final static private String URL = "https://script.google.com/a/macros/ewhain.net/s/AKfycbwGdp--OeAJS17NkXqXzdfFmu_MVWWx-toa_NMvdKPR0i2_zpOBEHfkO4xLXgPnvWfsdA/exec";
     private Map<String, String> map;
 
     public RegisterRequest(String userID, String userPassword, Response.Listener<String> listener) {

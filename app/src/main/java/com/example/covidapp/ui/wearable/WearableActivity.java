@@ -66,6 +66,8 @@ public class WearableActivity extends AppCompatActivity {
                 println("SpO2: ", String.valueOf(spo2_value));
                 println("Wearable Score: ", String.valueOf(wearableScore));
 
+                Toast.makeText(getApplicationContext(),"저장되었습니다.", Toast.LENGTH_LONG).show();
+
             }
 
         });
@@ -78,18 +80,14 @@ public class WearableActivity extends AppCompatActivity {
         navigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.nav_home:
-                    Toast.makeText(WearableActivity.this, "코로나19 정보", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(WearableActivity.this, MainActivity.class));
                     return true;
                 case R.id.nav_wearable:
-                    Toast.makeText(WearableActivity.this, "웨어러블 데이터 확인", Toast.LENGTH_LONG).show();
                     return true;
                 case R.id.nav_test:
-                    Toast.makeText(WearableActivity.this, "설문조사", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(WearableActivity.this, TestActivity.class));
                     return true;
                 case R.id.nav_result:
-                    Toast.makeText(WearableActivity.this, "자가진단 결과", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(WearableActivity.this, ResultActivity.class));
                     return true;
             }

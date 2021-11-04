@@ -41,18 +41,14 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.nav_home:
-                    Toast.makeText(MainActivity.this, "코로나19 정보", Toast.LENGTH_LONG).show();
                     break;
                 case R.id.nav_wearable:
-                    Toast.makeText(MainActivity.this, "웨어러블 데이터 확인", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(MainActivity.this, WearableActivity.class));
                     break;
                 case R.id.nav_test:
-                    Toast.makeText(MainActivity.this, "설문조사", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(MainActivity.this, TestActivity.class));
                     break;
                 case R.id.nav_result:
-                    Toast.makeText(MainActivity.this, "자가진단 결과", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(MainActivity.this, ResultActivity.class));
                     break;
             }
