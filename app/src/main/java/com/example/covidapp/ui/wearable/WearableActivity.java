@@ -11,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +31,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 public class WearableActivity extends AppCompatActivity {
     int hr_value;
@@ -41,8 +40,8 @@ public class WearableActivity extends AppCompatActivity {
     int spo2_score;
     int wearableScore;
 
-    EditText hr_edit;
-    EditText spo2_edit;
+    TextView hr_tv;
+    TextView spo2_tv;
 
     TextView hr_condition;
     TextView spo2_condition;
@@ -52,6 +51,7 @@ public class WearableActivity extends AppCompatActivity {
     SharedPreferences pref;
 
     float inputArray[][][];
+    float outputData[][][];
 
     protected Interpreter interpreter;
 
@@ -60,8 +60,8 @@ public class WearableActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wearable);
 
-        hr_edit = findViewById(R.id.HR_value);
-        spo2_edit = findViewById(R.id.spo2_value);
+        hr_tv = findViewById(R.id.HR_value);
+        spo2_tv = findViewById(R.id.spo2_value);
 
         hr_condition = findViewById(R.id.HR_condition);
         spo2_condition = findViewById(R.id.SpO2_condition);
@@ -70,8 +70,14 @@ public class WearableActivity extends AppCompatActivity {
         wearable_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                hr_value = Integer.parseInt(hr_edit.getText().toString().trim());
-                spo2_value = Integer.parseInt(spo2_edit.getText().toString().trim());
+                loadModule();
+                WearableArray();
+                makePrediction();
+
+                hr_value = (int) outputData[0][0][0];
+                spo2_value = (int) outputData[0][0][1];
+                hr_tv.setText(String.valueOf(hr_value));
+                spo2_tv.setText(String.valueOf(spo2_value));
                 setCondition();
                 wearableScore();
                 wearableScore = hr_score+spo2_score;
@@ -87,9 +93,6 @@ public class WearableActivity extends AppCompatActivity {
 
         });
 
-        loadModule();
-        WearableArray();
-        makePrediction();
 
         BottomNavigationView navigationView = findViewById(R.id.navigationView);
         Menu menu = navigationView.getMenu();
@@ -176,8 +179,8 @@ public class WearableActivity extends AppCompatActivity {
         if ((pref != null) && (pref.contains("HeartRate") && (pref.contains("SpO2")))) {
             String heartrate = String.valueOf(pref.getInt("HeartRate", 0));
             String spo2 = String.valueOf(pref.getInt("SpO2",0));
-            hr_edit.setText(heartrate);
-            spo2_edit.setText(spo2);
+            hr_tv.setText(heartrate);
+            spo2_tv.setText(spo2);
         }
     }
 
@@ -209,24 +212,34 @@ public class WearableActivity extends AppCompatActivity {
         return fileChannel.map(FileChannel.MapMode.READ_ONLY,startOffset,declareLength);
     }
 
-    private void WearableArray(){
+    public void WearableArray(){
         inputArray = new float[1][120][2];
+
         String InputLine = "";
         int Rowc = 0;
 
         try {
             InputStream inputStream = getResources().openRawResource(R.raw.wearable_data2);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
             reader.readLine();
             while ((InputLine = reader.readLine()) != null){
                 String[] InArray = InputLine.split(",");
 
+                //MinMaxScaler
                 for (int x = 0; x< InArray.length; x++){
-                    inputArray[0][Rowc][x] = Float.parseFloat(InArray[x]);
+                    if (x == 0) {
+                        //HeartRate: Min=40, Max=180
+                        inputArray[0][Rowc][x] = (Float.parseFloat(InArray[x])-40)/140;
+                    } else {
+                        //SpO2: Min=70, Max=100
+                        inputArray[0][Rowc][x] = (Float.parseFloat(InArray[x])-70)/30;
+                    }
+                    //Log.d("WearableActivity",Float.toString(inputArray[0][Rowc][x]));
                 }
                 Rowc++;
-                Log.d("WearableActivity", "read txt file");
             }
+            Log.d("WearableActivity", "read data file");
+            reader.close();
         } catch (IOException e){
             Log.wtf("WearableActivity", "Error reading data file", e);
         }
@@ -235,15 +248,28 @@ public class WearableActivity extends AppCompatActivity {
 
 
 
-    void makePrediction() {
+    public void makePrediction() {
         // 1 input(s): [  1 120   2] <class 'numpy.float32'>
         // 1 output(s): [1 1 2] <class 'numpy.float32'>
-        float outputData[][][]= new float[1][1][2];
+        outputData= new float[1][1][2];
 
         interpreter.run(inputArray, outputData);
-        String prediction = Float.toString(outputData[0][0][0]);
+        //Inverse Scaler
+        for (int i = 0; i<2; i++){
+            if (i == 0){
+                //HeartRate
+                outputData[0][0][i] = outputData[0][0][i]*140+40;
+            } else {
+                outputData[0][0][i] = outputData[0][0][i]*30+70;
+            }
+        }
 
-        Log.e("WearableActivity", "prediction: " + prediction );
+
+        String HRprediction = Float.toString(outputData[0][0][0]);
+        String SpO2prediction = Float.toString(outputData[0][0][1]);
+
+        Log.d("WearableActivity", "Heartrate prediction: " + HRprediction );
+        Log.d("WearableActivity", "SpO2 prediction: " + SpO2prediction );
 
     }
 

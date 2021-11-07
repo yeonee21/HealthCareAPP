@@ -34,6 +34,8 @@
     <string name="condition_caution">주의</string>
     <string name="condition_danger">위험</string>
 
+
+    <string name="getWearableData">데이터 불러오기</string>
     <string name="save">저장</string>
 
     <!-- 1. Strings related to temperature -->
