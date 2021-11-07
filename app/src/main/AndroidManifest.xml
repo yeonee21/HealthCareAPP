@@ -13,7 +13,7 @@
         android:theme="@style/Theme.COVIDAPP"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".LSTM"
+            android:name=".ui.wearable.LSTM"
             android:exported="false" />
         <activity
             android:name=".ui.test.TestActivity"

@@ -3,6 +3,7 @@ package com.example.covidapp.ui.wearable;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.AssetFileDescriptor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,9 +19,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.covidapp.MainActivity;
 import com.example.covidapp.R;
+import com.example.covidapp.ml.HRSpO2model;
 import com.example.covidapp.ui.result.ResultActivity;
 import com.example.covidapp.ui.test.TestActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import org.tensorflow.lite.DataType;
+import org.tensorflow.lite.Interpreter;
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+import java.util.Scanner;
 
 public class WearableActivity extends AppCompatActivity {
     int hr_value;
@@ -39,6 +55,10 @@ public class WearableActivity extends AppCompatActivity {
 
     SharedPreferences pref;
 
+    float inputArray[][][];
+
+    protected Interpreter interpreter;
+    private File tfliteModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +91,10 @@ public class WearableActivity extends AppCompatActivity {
             }
 
         });
+
+        //loadModule();
+        WearableArray();
+        //makePrediction();
 
         BottomNavigationView navigationView = findViewById(R.id.navigationView);
         Menu menu = navigationView.getMenu();
@@ -114,7 +138,7 @@ public class WearableActivity extends AppCompatActivity {
             spo2_score = 0;
         } else if (spo2_value >=90 && spo2_value <95) {
             spo2_score = 5;
-        } else if (spo2_value >=75 && spo2_value <89) {
+        } else if (spo2_value >=75 && spo2_value <90) {
             spo2_score = 7;
         }else if (spo2_value<75) {
             spo2_score = 10;
@@ -170,6 +194,88 @@ public class WearableActivity extends AppCompatActivity {
         editor.putInt("Wearable", wearableScore);
         editor.apply();
     }
+
+    private void loadModule() {
+        try {
+            interpreter = new Interpreter(loadModelFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        interpreter = new Interpreter(tfliteModel);
+
+    }
+
+    private MappedByteBuffer loadModelFile() throws IOException {
+        AssetFileDescriptor fileDescriptor=this.getAssets().openFd("HRSpO2model.tflite");
+        FileInputStream inputStream=new FileInputStream(fileDescriptor.getFileDescriptor());
+        FileChannel fileChannel=inputStream.getChannel();
+        long startOffset=fileDescriptor.getStartOffset();
+        long declareLength=fileDescriptor.getDeclaredLength();
+        return fileChannel.map(FileChannel.MapMode.READ_ONLY,startOffset,declareLength);
+    }
+
+    private void WearableArray(){
+        inputArray = new float[1][120][2];
+        Scanner scanner = null;
+        String InputLine = "";
+
+
+        int Rowc = 0;
+
+        try {
+            InputStreamReader sc  = new InputStreamReader(getAssets().open("wearable_data.txt"));
+            scanner = new Scanner(sc);
+            while (scanner.hasNextLine()){
+                InputLine = scanner.nextLine();
+                String[] InArray = InputLine.split(",");
+
+                for (int x = 0; x< InArray.length; x++){
+                    inputArray[0][Rowc][x] = Float.parseFloat(InArray[x]);
+                }
+                Rowc++;
+            }
+        } catch (IOException e){
+            Log.wtf("WearableActivity", "Error reading data file", e);
+        }
+
+    }
+
+
+
+    void makePrediction() {
+        // 1 input(s): [  1 120   2] <class 'numpy.float32'>
+        // 1 output(s): [1 1 2] <class 'numpy.float32'>
+        try {
+            HRSpO2model model = HRSpO2model.newInstance(WearableActivity.this);
+            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(120 * 2 * 4).order(ByteOrder.nativeOrder());
+            for (int y = 0; y < 2; y++){
+                for (int x = 0; x <120; x++){
+                    byteBuffer.putFloat(inputArray[0][x][y]);
+                }
+
+            }
+
+            // Creates inputs for reference.
+            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 120, 2}, DataType.FLOAT32);
+            inputFeature0.loadBuffer(byteBuffer);
+
+            // Runs model inference and gets result.
+            //HRSpO2model.Outputs outputs = model.process(inputFeature0);
+            //TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
+            TensorBuffer outputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 1, 2}, DataType.FLOAT32);
+            interpreter.run(inputFeature0.getBuffer(),outputFeature0.getBuffer());
+            float outputData[] = outputFeature0.getFloatArray();
+            Log.e("WearableActivity", "prediction: " + outputData);
+
+            // Releases model resources if no longer used.
+            model.close();
+        } catch (IOException e) {
+            Log.d("WearableActivity", "Prediction failed ",e);
+        }
+
+    }
+
 
 
 
