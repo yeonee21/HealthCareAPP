@@ -14,7 +14,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="100dp"
             app:cardCornerRadius="15dp"
             app:cardElevation="4dp"
             android:layout_marginLeft="20dp"
@@ -86,12 +86,12 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="50dp"
             android:layout_marginLeft="50dp"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textColor="@color/black"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="100dp"
             app:cardCornerRadius="15dp"
             app:cardElevation="4dp"
             android:layout_marginLeft="20dp"
@@ -163,21 +163,57 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
-            android:textSize="30sp" />
-
+            android:textSize="25sp" />
 
         <Button
             android:id="@+id/wearable_save"
             android:layout_width="220dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/light_blue"
             android:text="@string/getWearableData"
             android:textColor="@color/dark_blue"
             android:textSize="20sp">
 
         </Button>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:text="@string/HeartRate">
+
+        </TextView>
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/HRlinechart"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:text="@string/SpO2">
+
+        </TextView>
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/SpO2linechart"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
 
 
 

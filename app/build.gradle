@@ -61,5 +61,6 @@ dependencies {
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'org.jetbrains:annotations:15.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
 }

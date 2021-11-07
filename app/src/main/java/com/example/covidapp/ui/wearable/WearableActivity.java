@@ -20,6 +20,12 @@ import com.example.covidapp.MainActivity;
 import com.example.covidapp.R;
 import com.example.covidapp.ui.result.ResultActivity;
 import com.example.covidapp.ui.test.TestActivity;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.tensorflow.lite.Interpreter;
@@ -32,6 +38,7 @@ import java.io.InputStreamReader;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 public class WearableActivity extends AppCompatActivity {
     int hr_value;
@@ -42,18 +49,20 @@ public class WearableActivity extends AppCompatActivity {
 
     TextView hr_tv;
     TextView spo2_tv;
-
     TextView hr_condition;
     TextView spo2_condition;
 
     Button wearable_btn;
-
     SharedPreferences pref;
 
     float inputArray[][][];
     float outputData[][][];
 
     protected Interpreter interpreter;
+
+    private LineChart chartHR;
+    private LineChart chartSpO2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +75,10 @@ public class WearableActivity extends AppCompatActivity {
         hr_condition = findViewById(R.id.HR_condition);
         spo2_condition = findViewById(R.id.SpO2_condition);
 
+        chartHR = findViewById(R.id.HRlinechart);
+        chartSpO2 = findViewById(R.id.SpO2linechart);
+
+
         wearable_btn = findViewById(R.id.wearable_save);
         wearable_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +86,41 @@ public class WearableActivity extends AppCompatActivity {
                 loadModule();
                 WearableArray();
                 makePrediction();
+
+                LineDataSet lineDataSetHR = new LineDataSet(HRdataValues(),"Heartrate");
+                LineDataSet lineDataSetSpO2 = new LineDataSet(SpO2dataValues(),"SpO2");
+
+                ArrayList<ILineDataSet> dataSetsHR = new ArrayList<>();
+                dataSetsHR.add(lineDataSetHR);
+
+                ArrayList<ILineDataSet> dataSetsSpO2 = new ArrayList<>();
+                dataSetsSpO2.add(lineDataSetSpO2);
+
+                LineData dataHR = new LineData(dataSetsHR);
+                lineDataSetHR.setColor(Color.RED);
+                lineDataSetHR.setDrawCircles(false);
+                YAxis Yright_HR = chartHR.getAxisRight();
+                Yright_HR.setDrawLabels(false);
+                Yright_HR.setDrawAxisLine(false);
+                Yright_HR.setDrawGridLines(false);
+                YAxis Yleft_HR = chartHR.getAxisLeft();
+                Yleft_HR.setLabelCount(4,true);
+                chartHR.setDescription(null);
+                chartHR.setData(dataHR);
+                chartHR.invalidate();
+
+
+                LineData dataSpO2 = new LineData(dataSetsSpO2);
+                lineDataSetSpO2.setColor(Color.BLUE);
+                lineDataSetSpO2.setDrawCircles(false);
+                YAxis Yright_SpO2 = chartSpO2.getAxisRight();
+                Yright_SpO2.setDrawLabels(false);
+                Yright_SpO2.setDrawAxisLine(false);
+                Yright_SpO2.setDrawGridLines(false);
+                chartSpO2.setDescription(null);
+                chartSpO2.setData(dataSpO2);
+                chartSpO2.invalidate();
+
 
                 hr_value = (int) outputData[0][0][0];
                 spo2_value = (int) outputData[0][0][1];
@@ -246,6 +294,25 @@ public class WearableActivity extends AppCompatActivity {
 
     }
 
+    public ArrayList<Entry> HRdataValues() {
+        ArrayList<Entry> HRdataVals = new ArrayList<Entry>();
+        for (int i = 0; i<120; i++){
+            for (int j = 0; j<2; j++){
+                HRdataVals.add(new Entry(i+1,inputArray[0][i][0]*140+40));
+            }
+        }
+        return HRdataVals;
+    }
+
+    public ArrayList<Entry> SpO2dataValues() {
+        ArrayList<Entry> SpO2dataVals = new ArrayList<Entry>();
+        for (int i = 0; i<120; i++){
+            for (int j = 0; j<2; j++){
+                SpO2dataVals.add(new Entry(i+1,inputArray[0][i][1]*30+70));
+            }
+        }
+        return SpO2dataVals;
+    }
 
 
     public void makePrediction() {
