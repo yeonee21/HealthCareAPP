@@ -97,6 +97,8 @@ public class ResultActivity extends AppCompatActivity {
         });
 
     }
+
+    //위험도 구분
     public void setFinalCondition(){
         if (finalScore <= 40) {
             tv_finalCondition.setText("안전한 상태");
@@ -116,7 +118,7 @@ public class ResultActivity extends AppCompatActivity {
     public void println(String key,String value) {
         Log.d(key,value);
     }
-
+    //데이터 저장
     protected void saveState() {
         pref = getSharedPreferences("Data", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();

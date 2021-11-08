@@ -95,7 +95,7 @@ public class WearableActivity extends AppCompatActivity {
 
                 ArrayList<ILineDataSet> dataSetsSpO2 = new ArrayList<>();
                 dataSetsSpO2.add(lineDataSetSpO2);
-
+// 웨어러블 데이터를 읽고 그래프로 표현
                 LineData dataHR = new LineData(dataSetsHR);
                 lineDataSetHR.setColor(Color.RED);
                 lineDataSetHR.setDrawCircles(false);

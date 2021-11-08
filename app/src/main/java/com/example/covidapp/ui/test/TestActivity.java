@@ -284,6 +284,7 @@ public class TestActivity extends AppCompatActivity {
         Log.d(key,value);
     }
 
+//상태 저장 Logcat통해 확인가능
     protected void saveState() {
         pref = getSharedPreferences("Data", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
