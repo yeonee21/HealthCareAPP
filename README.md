@@ -25,6 +25,7 @@ Covid19 infection prediction application
 4. 하단 메뉴바에서 결과확인 칸을 클릭해 코로나 위험도 결과를 확인한다.
 
 ## Lisence
+https://github.com/yeonee21/HealthCareAPP.git
 
 ## Test 환경
 -	Android Studio Arctic Fox 
