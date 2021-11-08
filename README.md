@@ -25,8 +25,7 @@ Covid19 infection prediction application
 4. 하단 메뉴바에서 결과확인 칸을 클릭해 코로나 위험도 결과를 확인한다.
 
 ## Lisence
-https://github.com/yeonee21/HealthCareAPP/blob/master/LICENSE#Apache-2.0heading
-[License](#Apache-2.0heading)
+https://github.com/yeonee21/HealthCareAPP/blob/6ad1e2b19e1449d5468a985b76688d3032f9c6dc/LICENSE
 
 
 ## Test 환경
