@@ -24,14 +24,13 @@ Covid19 infection prediction application
 3. 하단 메뉴바에서 설문조사 칸을 클릭해 코로나 증상 관련 설문조사를 진행한다.
 4. 하단 메뉴바에서 결과확인 칸을 클릭해 코로나 위험도 결과를 확인한다.
 
+## 개발환경 및 언어
+- JAVA
+- Android API Level 30 (Android 11.0)
+
 ## Lisence
 Apache-2.0 License
 
-
-## Test 환경
-- Android Virtual Device: 
-    - Resolution | (Pixel 4) 5.7 1080x2280: xxhdpi
-    - R | API Level 30, Android 11.0 x86(Google APIs)
 
 ## 어플리케이션 실행 영상
 https://youtu.be/NmkYJDfP6V8
